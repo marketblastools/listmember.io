@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Member</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
+    }
+
+    body{
+      background:linear-gradient(135deg,#081120,#0f172a,#091524);
+      color:#fff;
+      min-height:100vh;
+      overflow-x:hidden;
+      padding:20px;
+    }
+
+    .container{
+      max-width:1400px;
+      margin:auto;
+    }
+
+    .header{
+      background:rgba(255,255,255,0.05);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:28px;
+      padding:30px;
+      backdrop-filter:blur(15px);
+      margin-bottom:25px;
+      box-shadow:0 10px 30px rgba(0,0,0,0.35);
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      flex-wrap:wrap;
+      gap:20px;
+    }
+
+    .title h1{
+      font-size:32px;
+      margin-bottom:10px;
+    }
+
+    .title p{
+      color:#cbd5e1;
+      font-size:14px;
+    }
+
+    .member-total{
+      background:linear-gradient(135deg,#00f7ff,#00ff99);
+      color:#000;
+      padding:18px 25px;
+      border-radius:22px;
+      text-align:center;
+      min-width:230px;
+      box-shadow:0 0 20px rgba(0,255,200,0.4);
+    }
+
+    .member-total h2{
+      font-size:34px;
+      font-weight:700;
+    }
+
+    .member-total span{
+      font-size:14px;
+      font-weight:600;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:2fr 1fr;
+      gap:20px;
+    }
+
+    .table-box,
+    .top-box{
+      background:rgba(255,255,255,0.05);
+      border:1px solid rgba(255,255,255,0.08);
+      border-radius:28px;
+      padding:25px;
+      backdrop-filter:blur(15px);
+      box-shadow:0 10px 30px rgba(0,0,0,0.35);
+    }
+
+    .section-title{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:20px;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+
+    .section-title h2{
+      font-size:24px;
+    }
+
+    .badge{
+      background:rgba(0,255,200,0.15);
+      color:#00ffcc;
+      padding:8px 15px;
+      border-radius:999px;
+      font-size:13px;
+      font-weight:600;
+    }
+
+    table{
+      width:100%;
+      border-collapse:collapse;
+    }
+
+    th{
+      background:rgba(0,255,200,0.12);
+      color:#00ffcc;
+      padding:15px;
+      text-align:left;
+      font-size:14px;
+    }
+
+    td{
+      padding:15px;
+      border-bottom:1px solid rgba(255,255,255,0.08);
+      color:#e2e8f0;
+      font-size:14px;
+    }
+
+    tr:hover{
+      background:rgba(255,255,255,0.03);
+    }
+
+    .status-online{
+      color:#00ff99;
+      font-weight:600;
+    }
+
+    .status-active{
+      color:#00f7ff;
+      font-weight:600;
+    }
+
+    .top-card{
+      background:rgba(255,255,255,0.04);
+      border:1px solid rgba(255,255,255,0.05);
+      border-radius:22px;
+      padding:20px;
+      margin-bottom:15px;
+      transition:0.3s;
+    }
+
+    .top-card:hover{
+      transform:translateY(-5px);
+      border-color:#00ffcc;
+    }
+
+    .top-card h3{
+      color:#00f7ff;
+      margin-bottom:10px;
+      font-size:18px;
+    }
+
+    .top-card p{
+      color:#cbd5e1;
+      font-size:13px;
+      line-height:1.7;
+    }
+
+    .income{
+      color:#00ff99;
+      font-weight:700;
+    }
+
+    .footer{
+      text-align:center;
+      margin-top:25px;
+      color:#94a3b8;
+      font-size:13px;
+    }
+
+    @media(max-width:1000px){
+      .grid{
+        grid-template-columns:1fr;
+      }
+    }
+
+    @media(max-width:700px){
+
+      .header{
+        padding:20px;
+      }
+
+      .title h1{
+        font-size:24px;
+      }
+
+      .table-box{
+        overflow-x:auto;
+      }
+
+      th,td{
+        font-size:12px;
+        padding:12px;
+      }
+
+      .member-total h2{
+        font-size:28px;
+      }
+
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <div class="header">
+    <div class="title">
+      <h1>INFO MEMBER</h1>
+      <p>Data Result penghasilan Member </p>
+    </div>
+
+    <div class="member-total">
+      <h2>923.624</h2>
+      <span>Total Member</span>
+    </div>
+  </div>
+
+  <div class="grid">
+
+    <div class="table-box">
+
+      <div class="section-title">
+        <h2>List Data Member</h2>
+        <div class="badge">Realtime Database</div>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Nama</th>
+            <th>Status</th>
+            <th>Penghasilan</th>
+            <th>Level</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>Riska amalia</td>
+            <td class="status-online">Online</td>
+            <td class="income">Rp 9.134.399</td>
+            <td>Platinum</td>
+          </tr>
+
+          <tr>
+            <td>Gadgetme</td>
+            <td class="status-active">Aktif</td>
+            <td class="income">Rp 15.214.775</td>
+            <td>Platinum</td>
+          </tr>
+
+          <tr>
+            <td>moraskin beauty</td>
+            <td class="status-online">Online</td>
+            <td class="income">Rp 7.300.000</td>
+            <td>Gold</td>
+          </tr>
+
+          <tr>
+            <td>Sarimbit store</td>
+            <td class="status-active">Aktif</td>
+            <td class="income">Rp 11.750.000</td>
+            <td>Platinum</td>
+          </tr>
+
+          <tr>
+            <td>Siti Aisyah</td>
+            <td class="status-online">Online</td>
+            <td class="income">Rp 5.900.000</td>
+            <td>Basic</td>
+          </tr>
+
+          <tr>
+            <td>Pasmina shop</td>
+            <td class="status-active">Aktif</td>
+            <td class="income">Rp 9.800.000</td>
+            <td>Bronze</td>
+          </tr>
+
+          <tr>
+            <td>Putra Wijaya</td>
+            <td class="status-online">Online</td>
+            <td class="income">Rp 8.650.000</td>
+            <td>Gold</td>
+          </tr>
+
+          <tr>
+            <td>Nanda Permana</td>
+            <td class="status-active">Aktif</td>
+            <td class="income">Rp 6.200.000</td>
+            <td>Basic</td>
+          </tr>
+
+        </tbody>
+      </table>
+
+    </div>
+
+    <div class="top-box">
+
+      <div class="section-title">
+        <h2>Top Member Bulanan</h2>
+      </div>
+
+      <div class="top-card">
+        <h3>#1 Agus Ramadhan</h3>
+        <p>Penghasilan bulan ini mencapai <span class="income">Rp 25.293.415</span> dengan performa optimasi tertinggi.</p>
+      </div>
+
+      <div class="top-card">
+        <h3>#2 Rizky Saputra</h3>
+        <p>Penghasilan bulan ini mencapai <span class="income">Rp 12.507.487</span> dan peningkatan engagement stabil.</p>
+      </div>
+
+      <div class="top-card">
+        <h3>#3 Yoga Pratama</h3>
+        <p>Penghasilan bulan ini mencapai <span class="income">Rp 11.759.667</span> dengan performa marketplace aktif.</p>
+      </div>
+
+      <div class="top-card">
+        <h3>#4 Intan Nur</h3>
+        <p>Penghasilan bulan ini mencapai <span class="income">Rp 19.887.442</span> dan algoritma optimasi meningkat.</p>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="footer">
+    © 2026 PGN | List member realtime
+  </div>
+
+</div>
+
+<script>
+
+const rows = document.querySelectorAll('tbody tr');
+
+setInterval(()=>{
+
+  rows.forEach((row,index)=>{
+
+    setTimeout(()=>{
+
+      row.style.background = 'rgba(0,255,200,0.08)';
+      row.style.transition = '0.3s';
+
+      setTimeout(()=>{
+        row.style.background = 'transparent';
+      },700);
+
+    },index * 120);
+
+  });
+
+},4000);
+
+</script>
+
+</body>
+</html>
+
